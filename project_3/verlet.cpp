@@ -1,19 +1,18 @@
-#include verlet.h
+#include <verlet.h>
+#include <solarsystem.h>
 
 Verlet::Verlet (double dt):
-//Calculate the time step, from number of iterations and total time
-	time_step(int N, double total_time){
-		step = N/total_time;
-		stepstep = step*step
+    time_step(dt){
 	}
 
-void Verlet::integrateOneStep(SolarSystem &systems)
+void Verlet::integrateOneStep(SolarSystem &system)
 {
+    system.calculateForcesAndEnergy();
+    double stepstep = time_step*time_step;
 
-	systemcalculateForcesAndEnergy();
-
-	for(CelestialBody &body : system.bodies()){
-		body.position_new = 2*body.velocity -body.velocity_prev + stepstep*(body.force/body.mass)
-		body.velocity = (body.position_new - body.position_prev)/(2*step)
+    for(CelestialBody &body : system.bodies()){
+        vec3 prev_position = body.position;
+        body.position = 2*body.position - prev_position+ stepstep*(body.force/body.mass);
+        body.velocity = (body.position - prev_position)/(2*time_step);
 	} 
 }

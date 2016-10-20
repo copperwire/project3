@@ -7,13 +7,13 @@ SOURCES += main.cpp \
     celestialbody.cpp \
     solarsystem.cpp \
     euler.cpp \
-    verlet.cpp
+    verlet.cpp \
+    vec3.cpp
 INCLUDEPATH += /usr/include
-
-LIBS += -larmadillo -lblas -llapack
 
 HEADERS += \
     celestialbody.h \
     solarsystem.h \
     euler.h \
-    verlet.h
+    verlet.h \
+    vec3.h

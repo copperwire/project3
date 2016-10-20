@@ -1,22 +1,17 @@
-#include euler.h
+#include <euler.h>
+#include <solarsystem.h>
 
 Euler::Euler (double dt):
-//Calculate the time step, from number of iterations and total time
-	time_step(int N, double total_time){
-		step = N/total_time;
+    time_step(dt){
 	}
 
-void Euler::integrateOneStep(SolarSystem &systems)
+void Euler::integrateOneStep(SolarSystem &system)
 {
-	system-calculateForcesAndEnergy();
+    system.calculateForcesAndEnergy();
 
-	for(CelestialBody &body : system.bodies()){
-		body.position += body.velocity * time_step
-		body.velocity += (body.force/body.mass)*time_step 
+    for(CelestialBody &body : system.bodies()){
+        body.position += body.velocity * time_step;
+        body.velocity += (body.force/body.mass)*time_step;
 	} 
 }
-
-
-
-
 
