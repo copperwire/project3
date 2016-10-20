@@ -9,7 +9,7 @@ using namespace std;
 int main(int argc, char *argv[])
 {
     int N = atoi(argv[1]);
-
+i   //I denne filen driver Geir med fjasing.
     //units [m] = solar masses, [r] = au, [v] = au/day
     SolarSystem incandescence;
 
