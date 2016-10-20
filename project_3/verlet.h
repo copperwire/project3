@@ -1,11 +1,14 @@
 #ifndef VERLET_H
+#include<solarsystem.h>
 #define VERLET_H
 
-
-class verlet
+class Verlet
 {
 public:
-    verlet();
+    double time_step;
+    Verlet(double time_step);
+
+    void integrateOneStep(class SolarSystem &system);
 };
 
 #endif // VERLET_H
