@@ -11,7 +11,7 @@ public:
     vec3 force;
     double mass;
 
-    CelestialBody(vec3 vel, vec3 pos, double mass);
+    CelestialBody(vec3 pos, vec3 vel, double mass);
     CelestialBody(double x, double y, double z, double vx, double vy, double vz, double mass_);
 
     void resetForce();

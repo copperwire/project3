@@ -17,6 +17,7 @@ void SolarSystem::calculateForcesAndEnergy()
 {
     m_kineticEnergy = 0;
     m_potentialEnergy = 0;
+    double G = 39.42 ; // AU^3 / (M_s * year ^2) = N m^2 / kg^2
     m_angularMomentum.zeros();
 
     for(CelestialBody &body : m_bodies) {
@@ -25,14 +26,18 @@ void SolarSystem::calculateForcesAndEnergy()
     }
 
     for(int i=0; i<numberOfBodies(); i++) {
+
         CelestialBody &body1 = m_bodies[i];
         for(int j=i+1; j<numberOfBodies(); j++) {
+            //need better solution to avoid calculating forces twice for each body
             CelestialBody &body2 = m_bodies[j];
             vec3 deltaRVector = body1.position - body2.position;
             double dr = deltaRVector.length();
-            // Calculate the force and potential energy here
-        }
 
+            body2.force += G* body1.mass*body2.mass*deltaRVector/(dr*dr*dr);
+            m_potentialEnergy += G* body1.mass*body2.mass/(dr);
+            // Calculate and potential energy here
+        }
         m_kineticEnergy += 0.5*body1.mass*body1.velocity.lengthSquared();
     }
 }
@@ -68,7 +73,7 @@ void SolarSystem::writeToFile(string filename)
     }
 
     m_file << numberOfBodies() << endl;
-    m_file << "Comment line that needs to be here. Balle." << endl;
+    //m_file << "#Comment line that needs to be here. Balle." << endl;
     for(CelestialBody &body : m_bodies) {
         m_file << "1 " << body.position.x() << " " << body.position.y() << " " << body.position.z() << "\n";
     }

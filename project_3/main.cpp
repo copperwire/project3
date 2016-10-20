@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
         cout << "The position of this object is " << body.position << " with velocity " << body.velocity << endl;
     }
 
-    double dt = 0.001;
+    double dt = 1/(double) N ;
     Euler integrator(dt);
     for(int timestep=0; timestep<N; timestep++) {
             integrator.integrateOneStep(incandescence);

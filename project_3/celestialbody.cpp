@@ -1,7 +1,7 @@
 #include "celestialbody.h"
 #include "vec3.h"
 
-CelestialBody::CelestialBody(vec3 vel, vec3 pos, double mass_)
+CelestialBody::CelestialBody(vec3 pos, vec3 vel, double mass_)
 {
     position = pos;
     velocity = vel;
