@@ -23,12 +23,19 @@ int main(int argc, char *argv[])
     }
 
     double dt = 1/(double) N ;
-    Euler integrator(dt);
+    Euler integrator_euler(dt);
     for(int timestep=0; timestep<N; timestep++) {
-            integrator.integrateOneStep(incandescence);
-            incandescence.writeToFile("positions.xyz");
+            integrator_euler.integrateOneStep(incandescence);
+            incandescence.writeToFile("positions_earth_sun_euler.xyz", timestep, N);
     }
 
-    cout << "I just created my first solar system that has " << incandescence.bodies().size() << " objects." << endl;
+    //cout << "I just created my first solar system that has " << incandescence.bodies().size() << " objects." << endl;
+
+    Verlet integrator_verlet(dt);
+    for(int timestep=0; timestep<N; timestep++) {
+            integrator_verlet.integrateOneStep(incandescence);
+            incandescence.writeToFile("positions_earth_sun_verlet.xyz", timestep, N);
+    }
+
     return 0;
 }

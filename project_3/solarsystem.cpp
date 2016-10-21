@@ -62,8 +62,9 @@ double SolarSystem::kineticEnergy() const
     return m_kineticEnergy;
 }
 
-void SolarSystem::writeToFile(string filename)
+void SolarSystem::writeToFile(string filename, double timestep, int N)
 {
+
     if(!m_file.good()) {
         m_file.open(filename.c_str(), ofstream::out);
         if(!m_file.good()) {
@@ -76,6 +77,9 @@ void SolarSystem::writeToFile(string filename)
     //m_file << "#Comment line that needs to be here. Balle." << endl;
     for(CelestialBody &body : m_bodies) {
         m_file << "1 " << body.position.x() << " " << body.position.y() << " " << body.position.z() << "\n";
+    }
+    if (timestep == N-1){
+        m_file.close();
     }
 }
 
