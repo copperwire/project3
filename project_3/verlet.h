@@ -8,9 +8,8 @@ class Verlet
 public:
     double time_step;
     Verlet(double time_step);
-    //vec3 prev_position;
     //vec3 prevprev_position;
-    vec3 prev_acc;
+    //vec3 prev_acc;
 
     void integrateOneStep(class SolarSystem &system);
 };

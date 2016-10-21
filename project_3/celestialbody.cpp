@@ -3,6 +3,7 @@
 
 CelestialBody::CelestialBody(vec3 pos, vec3 vel, double mass_)
 {
+    prev_position = vec3();
     position = pos;
     velocity = vel;
     mass = mass_;

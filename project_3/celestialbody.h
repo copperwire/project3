@@ -9,6 +9,7 @@ public:
     vec3 position;
     vec3 velocity;
     vec3 force;
+    vec3 prev_position;
     double mass;
 
     CelestialBody(vec3 pos, vec3 vel, double mass);
