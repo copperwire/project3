@@ -73,10 +73,10 @@ void SolarSystem::writeToFile(string filename, double timestep, int N)
         }
     }
 
-    m_file << numberOfBodies() << endl;
+    //m_file << numberOfBodies() << endl;
     //m_file << "#Comment line that needs to be here. Balle." << endl;
     for(CelestialBody &body : m_bodies) {
-        m_file << "1 " << body.position.x() << " " << body.position.y() << " " << body.position.z() << "\n";
+        m_file << body.position.x() << " " << body.position.y() << " " << body.position.z() << "\n";
     }
     if (timestep == N-1){
         m_file.close();

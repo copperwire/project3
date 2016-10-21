@@ -15,10 +15,10 @@ int main(int argc, char *argv[])
     CelestialBody &solaire = incandescence.createCelestialBody(vec3(0, 0, 0), vec3(0,0,0), 1);
     CelestialBody &holy_terra = incandescence.createCelestialBody(vec3(1, 0, 0), vec3(0, 2*M_PI, 0), 3e-6);
 
-    vector<CelestialBody> &bodies = incandescence.bodies();
+    vector<CelestialBody> &bodies_euler = incandescence.bodies();
 
-    for(int i = 0; i<bodies.size(); i++) {
-        CelestialBody &body = bodies[i]; // Reference to this body
+    for(int i = 0; i<bodies_euler.size(); i++) {
+        CelestialBody &body = bodies_euler[i]; // Reference to this body
         cout << "The position of this object is " << body.position << " with velocity " << body.velocity << endl;
     }
 
@@ -30,10 +30,20 @@ int main(int argc, char *argv[])
     }
 
     //cout << "I just created my first solar system that has " << incandescence.bodies().size() << " objects." << endl;
+    SolarSystem testsystem;
 
+    CelestialBody &test_sol = testsystem.createCelestialBody(vec3(0, 0, 0), vec3(0,0,0), 1);
+    CelestialBody &test_jord = testsystem.createCelestialBody(vec3(1, 0, 0), vec3(0, 2*M_PI, 0), 3e-6);
+
+//    vector<CelestialBody> &bodies_verlet = testsystem.bodies();
+
+//    for(int i = 0; i<bodies_verlet.size(); i++) {
+//        CelestialBody &body = bodies_verlet[i]; // Reference to this body
+//        cout << "The position of this object is " << body.position << " with velocity " << body.velocity << endl;
+//    }
     Verlet integrator_verlet(dt);
     for(int timestep=0; timestep<N; timestep++) {
-            integrator_verlet.integrateOneStep(incandescence);
+            integrator_verlet.integrateOneStep(testsystem);
             incandescence.writeToFile("positions_earth_sun_verlet.xyz", timestep, N);
     }
 
