@@ -21,12 +21,32 @@ int main(int argc, char *argv[])
         CelestialBody &body = bodies_euler[i]; // Reference to this body
         cout << "The position of this object is " << body.position << " with velocity " << body.velocity << endl;
     }
-
     double dt = 1/(double) N ;
-    Euler integrator_euler(dt);
-    for(int timestep=0; timestep<N; timestep++) {
+    
+    if argv[1] == '0'{
+        Euler integrator_euler(dt);
+        string time_file = "euler_time";
+        ofstream time_write (time_file.c_str());
+        time_write << "#num iterations, seconds/clocks_per_sec" <<endl;
+        start = clock();
+        for(int timestep=0; timestep<N; timestep++) {
             integrator_euler.integrateOneStep(incandescence);
             incandescence.writeToFile("positions_earth_sun_euler.xyz", timestep, N);
+        }
+        stop = clock();
+    }
+    elseif argv[1] == 1{
+        string time_file = "verlet_time";
+        ofstream time_write (time_file.c_str());
+        time_write << "#num iterations, seconds/clocks_per_sec" <<endl;
+        Verlet integrator_verlet(dt);
+        for(int timestep=0; timestep<N; timestep++) {
+            integrator_verlet.integrateOneStep(testsystem);
+            incandescence.writeToFile("positions_earth_sun_verlet.xyz", timestep, N);
+        }
+
+        
+    }
     }
 
     //cout << "I just created my first solar system that has " << incandescence.bodies().size() << " objects." << endl;
@@ -41,11 +61,6 @@ int main(int argc, char *argv[])
 //        CelestialBody &body = bodies_verlet[i]; // Reference to this body
 //        cout << "The position of this object is " << body.position << " with velocity " << body.velocity << endl;
 //    }
-    Verlet integrator_verlet(dt);
-    for(int timestep=0; timestep<N; timestep++) {
-            integrator_verlet.integrateOneStep(testsystem);
-            incandescence.writeToFile("positions_earth_sun_verlet.xyz", timestep, N);
-    }
 
     return 0;
 }
