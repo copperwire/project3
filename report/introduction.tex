@@ -1,10 +1,12 @@
 \section{Introduction}
-In this project the goal is to develop a code for simulating the solar system using the velocity
+In this project the goal is to develop a code for simulating the motion of objects in the Solar System, using the velocity
 Verlet algorithm. The Verlet algorithm will be compared to the well-known Euler algorithm for the
-initial parts of the project. To generalize and simplify the structure of the program, 
-the code will be object oriented so repeatable parts and operations are written as classes.
+initial parts of the project. It is found that the Verlet algorithm is more efficient and more precise, so this is the integration method used in the rest of the project.  
+
+To generalize and simplify the structure of the program, 
+the code will be object oriented, so repeatable parts and operations are written as classes.
 One advantage of using the velocity Verlet is that the calculated velocity can be used to check
-that kinetic energy is conserved, which allows for simple testing of the systems stability.
+that kinetic energy is conserved, which allows for simple testing of the systems stability.[Needs reference]
 The project will progress by first developing a code for the two-body Earth-Sun system, and then
 expanding to a three-body system, before finally completing the solar system with all planets.
 When the solar system is complete, the simulated system will be used to study the perihelion
