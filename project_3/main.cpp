@@ -9,6 +9,7 @@ using namespace std;
 int main(int argc, char *argv[])
 {
     int N = atoi(argv[1]);
+    int years = atoi(argv[3]);
     //units [m] = solar masses, [r] = au, [v] = au/yr
     SolarSystem incandescence;
 
@@ -21,7 +22,7 @@ int main(int argc, char *argv[])
         CelestialBody &body = bodies_euler[i]; // Reference to this body
         cout << "The position of this object is " << body.position << " with velocity " << body.velocity << endl;
     }
-    double dt = 1/(double) N ;
+    double dt = years/(double) N ;
     double start, stop;
 
     if( atoi(argv[2]) == 0){
