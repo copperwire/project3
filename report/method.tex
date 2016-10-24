@@ -2,10 +2,10 @@
 
 \subsection{Velocity-Verlet method}
 \subsubsection{General Verlet}
-This is a popular algorithm for solving Newton{(1)}s equations of motion, and is also used in 
+This is a popular algorithm for solving Newton's equations of motion, and is also used in 
 molecular dynamics simulations and computer graphics. In this case the algorithm will be 
 applied to the gravitational force between to bodies in a simulated solar system. 
-The problem is described by Newton{(1)}s second law of motion, which will be the example for outlining
+The problem is described by Newton's second law of motion, which will be the example for outlining
 the method.
 
 \begin{equation*}
@@ -41,14 +41,14 @@ using:
 \begin{equation*}
 x_i^{(1)} = \frac{x_{i+1} - x_{i-1}}{2h} + O(h^2)
 \end{equation*}
-Note that the algorithm for posision depends on $x_{i-1}$, which is rather ficticious for $i=0$.
+Note that the algorithm for position depends on $x_{i-1}$, which is rather ficticious for $i=0$.
 This is where velocity Verlet comes in. 
 \newline
 Taylor expanding the velocity gives:
 \begin{equation*}
 v_{i+1} = v_i + hv_i^{(1)} + \frac{h^2}{2}v_i^{{(2)}} + O(h^3)
 \end{equation*}
-Through Newton{(1)}s second law an analytical expression for the derivative of the velocity can be
+Through Newton's second law an analytical expression for the derivative of the velocity can be
 obtained:
 \begin{equation*}
 v_i^{(1)} = \frac{d^2x}{dt^2}|_i =\frac{F(x_i,t_i)}{m}
