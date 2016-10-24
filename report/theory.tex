@@ -1,4 +1,80 @@
 \section{Theory}
+\subsection{Velocity-Verlet method}
+\subsubsection{General Verlet}
+This is a popular algorithm for solving Newton's equations of motion, and is also used in  
+molecular dynamics simulations and computer graphics. In this case the algorithm will be  
+applied to the gravitational force between to bodies in a simulated solar system. 
+The problem is described by Newton's second law of motion, which will be the example for outlining
+the method.
+
+\begin{equation*}
+m\frac{d^2x}{dt^2}= F(x,t)
+\end{equation*}
+
+Rewriting in terms of two coupled differential equations gives:
+\begin{align*}
+\frac{dx}{dt} &= v(x,t) \\
+\frac{dv}{dt} &= \frac{F(x,t)}{m} = a(x,t)
+\end{align*}
+
+
+Taylor expanding $x$ gives:
+\begin{equation*}
+x(t+h) = x(t) + hx^{(1)}(t) + \frac{h^2}{2}x^{{(2)}}(t) + O(h^3)
+\end{equation*}
+
+Adding the corresponding Taylor expansion for $x(t-h)$, and discretizing the expressions,
+the following is obtained:
+
+\begin{align*}
+x(t_i \pm h) &= x_{i\pm 1} \\
+x_i &= x(t_i) \\
+x_{i+1} &= 2x_i - x_{i-1} + h^2 x_i^{{(2)}} + O(h^4)
+\end{align*}
+
+\subsubsection{Velocity-Verlet}
+In the above section it is found that velocity is not directly included in the equation, since
+the function $x_i^{{(2)}} = a(x,t)$ is supposed to be known. If one would like to keep an eye on, say,
+conservation laws for energy, the velocity is needed to find kinetic energy. It can be computed
+using:
+\begin{equation*}
+x_i^{(1)} = \frac{x_{i+1} - x_{i-1}}{2h} + O(h^2)
+\end{equation*}
+Note that the algorithm for position depends on $x_{i-1}$, which is rather ficticious for $i=0$.
+This is where velocity Verlet comes in.  
+\newline 
+Taylor expanding the velocity gives:
+\begin{equation*}
+v_{i+1} = v_i + hv_i^{(1)} + \frac{h^2}{2}v_i^{{(2)}} + O(h^3)
+\end{equation*}
+Through Newton's second law an analytical expression for the derivative of the velocity can be
+obtained:
+\begin{equation*}
+v_i^{(1)} = \frac{d^2x}{dt^2}|_i =\frac{F(x_i,t_i)}{m}
+\end{equation*}
+Adding the corresponding Taylor expansion for the derivative of the velocity:
+\begin{equation*}
+v_{i+1}^{(1)} = v_i^{(1)} + hv_i^{{(2)}} + O(h^2)
+\end{equation*}
+Since the error goes as $O(h^3)$ only terms up to the second derivative of the velocity are retained,
+to reach the following expression:
+\begin{equation*}
+hv_i^{{(2)}} \approx v_{i+1}^{(1)} - v_i^{(1)}
+\end{equation*}
+This allows for rewriting the Taylor expansion for the velocity as
+\begin{equation*}
+v_{i+1} = v_i + \frac{h}{2}\big(v_{i+1}^{(1)} + v_i^{(1)}\big) + O(h^3)
+\end{equation*}
+
+The final expressions for position and velocity become:
+\begin{align*}
+x_{i+1} &= x_i + hv_i + \frac{h^2}{2}v_i^{(1)} + O(h^3) \\
+v_{i+1} &= v_i + \frac{h}{2}\big(v_{i+1}^{(1)} + v_i^{(1)}\big) + O(h^3)
+\end{align*}
+It is important when implementing this method that the term $v_{i+1}^{(1)}$ depends on the position
+$x_{i+1}$, which means the position must be calculated at $t_{i+1}$ before the next velocity can
+be computed. Additionally, the derivative of the velocity at the time $t_i$ used when calculating
+the updated position can be reused in the velocity update.
 \subsection{Escape velocity}
 Concidering a planet with an initial distance from the sun of 1 AU, the escape velocity can be
 found using conservation of energy (assuming the planet - sun system can be treated as isolated).
