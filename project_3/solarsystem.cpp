@@ -1,5 +1,6 @@
 #include "solarsystem.h"
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 SolarSystem::SolarSystem() :
@@ -15,9 +16,13 @@ CelestialBody& SolarSystem::createCelestialBody(vec3 position, vec3 velocity, do
 
 void SolarSystem::calculateForcesAndEnergy()
 {
+    double prev_kin = m_kineticEnergy;
+    double prev_pot = m_potentialEnergy;
+
     m_kineticEnergy = 0;
     m_potentialEnergy = 0;
     double G = 39.42 ; // AU^3 / (M_s * year ^2) = N m^2 / kg^2
+    vec3 prev_ang = m_angularMomentum;
     m_angularMomentum.zeros();
 
     for(CelestialBody &body : m_bodies) {
@@ -34,12 +39,29 @@ void SolarSystem::calculateForcesAndEnergy()
             vec3 deltaRVector = body1.position - body2.position;
             double dr = deltaRVector.length();
 
-            body2.force += G* body1.mass*body2.mass*deltaRVector/(dr*dr*dr);
+            vec3 force_val = G* body1.mass*body2.mass*deltaRVector/(dr*dr*dr);
+            body2.force += force_val;
+            body1.force -= force_val;
+
             m_potentialEnergy += G* body1.mass*body2.mass/(dr);
-            // Calculate and potential energy here
         }
+        m_angularMomentum += body1.position.cross(body1.mass*body1.velocity);
         m_kineticEnergy += 0.5*body1.mass*body1.velocity.lengthSquared();
     }
+
+   double d_K = fabs(prev_kin - m_kineticEnergy);
+   double d_P = fabs(prev_pot - m_potentialEnergy);
+   double d_L = fabs((prev_ang - m_angularMomentum).length());
+
+   if( d_K > 0.0001*prev_kin){
+       cout << "Warning: kinetic energy may be unstable " << endl;
+   }
+   else if( d_P > 0.0001*prev_pot){
+       cout << "Warning: Potential energy may be unstable " << endl;
+   }
+   else if( d_L > 0.0001*prev_ang.length()){
+       cout << "Warning: Spin may be unstable " << endl;
+   }
 }
 
 int SolarSystem::numberOfBodies() const
