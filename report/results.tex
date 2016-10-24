@@ -1,1 +1,29 @@
 \section{Results}
+\subsection{Escape velocity}
+Concidering a planet with an initial distance from the sun of 1 AU, the escape velocity can be
+found using conservation of energy (assuming the planet - sun system can be treated as isolated).
+Define kinetic energy as
+$$E_k = \frac{1}{2}m_{p}v_{p}^2$$
+and potential energy in the gravitational field as
+$$E_p = -\frac{Gm_{sun}m_{p}}{r}$$
+where $r$ is the distance between the center of mass of the planet and the sun, and $m_p$ is the
+mass of the planet. Define also the potential
+energy to be 0 when the planet is at an infinite distance away from the sun. The escape velocity can
+then be seen as the initial velocity required for the planet to continue increasing its distance from
+the sun until it comes to a stop when the distance reaches infinity. This gives the following
+equation:
+\begin{equation*}
+E_{k,1} + E_{p,1} = E_{k,2} + E_{p,2}
+\end{equation*}
+where the left-hand side is the initial case and the right-hand side is the infinite-distance
+case. Inserting the expressions for kinetic and potential energy, and the conditions for the
+infinite-distance energies, gives:
+\begin{align*}
+\tfrac{1}{2}m_{p}v_{escape}^2 &- \frac{Gm_{sun}m_{p}}{r} = 0 \\
+\tfrac{1}{2}m_{p}v_{escape}^2 &= \frac{Gm_{sun}m_{p}}{r} \\
+v_{escape} &= \sqrt{\tfrac{2Gm_{sun}}{r}}
+\end{align*}
+Inserting $r = 1AU$ and $m_{sun} = 1$ gives 
+$$v_{escape} = \sqrt{2G} \approx 8.88\tfrac{AU}{yr}$$
+where the converted gravitational constant is $G = 39.42 \frac{(AU)^3}{M_{sun}(yr)^2}$
+
