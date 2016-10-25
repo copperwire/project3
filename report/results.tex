@@ -1,5 +1,5 @@
 \section{Results}
-\subsection{Two body system}
+\subsection{Two-body system}
 \begin{figure}[h]
 \includegraphics[scale=0.7]{figures/earth_sun_euler}
 \caption{The plot shows the simulated orbit of the Earth around the Sun using the forward Euler integration method. The motion is simulated for two years, with $\Delta t = 0.002$ years.}
@@ -30,20 +30,24 @@ Using the model for the two-body system, a trial and error process of finding th
 for a planet with initial position 1AU away from the sun was performed. The calculations were
 performed using the velocity Verlet method.
 \begin{figure}[h]
-\includegraphics[width=textwidth]{figures/escape_86}
+\includegraphics[width=\textwidth]{figures/escape_86}
 \caption{The plot shows the position of a planet relative to the sun as a function of time when 
 the planet has $v_{init} = 8.6\tfrac{AU}{yr}$}
 \end{figure}
 \begin{figure}[h]
-\includegraphics[width=textwidth]{figures/escape_87}
+\includegraphics[width=\textwidth]{figures/escape_87}
 \caption{The plot shows the position of a planet relative to the sun as a function of time when 
 the planet has $v_{init} = 8.7\tfrac{AU}{yr}$}
 \end{figure}
-
-\subsection{Three body system}
+\subsection{Three-body system}
 \begin{figure}[h]
 \includegraphics[scale=0.7]{figures/three_body}[h]
-\caption{The plot shows the orbit of Earth and Jupiter around the Sun }
+\caption{The plot shows the orbit of Earth and Jupiter around the barycentre }
 \end{figure}
 
+\subsection{Full solar system}
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{figures/solarsystem}[h]
+\caption{The plot shows the orbit of all the particles in the Solar System around the barycentre}
+\end{figure}
 
