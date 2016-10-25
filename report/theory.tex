@@ -12,8 +12,6 @@ $h$ such that $t_i = t_0 + ih$ where $i \in [0,n]$ and $h = \frac{t_n-t_0}{n}$, 
 \begin{equation*} 
 y_{i+1} = y_i + hf(t_i, y_i)
 \end{equation*}
-The error then goes as $O(h^2)$.
-\newline
 A deeper explanation and examples for improving the method is available at the course github
 \footnote{http://compphysics.github.io/ComputationalPhysics/doc/pub/ode/pdf/ode-print.pdf}.
 
@@ -185,7 +183,7 @@ infinite-distance energies, gives:
 \tfrac{1}{2}m_{p}v_{esc}^2 &= \frac{GM_{\astrosun}m_{p}}{r} \\
 v_{escape} &= \sqrt{\tfrac{2GM_{\astrosun}}{r}}
 \end{align*}
-Inserting $r = 1AU$ and $m_{sun} = 1$ gives 
+Inserting $r = 1AU$ and $M_{\astrosun} = 1$ gives 
 \begin{equation}\label{eq:escape}
 v_{esc} = \sqrt{2G} \approx 8.88\tfrac{AU}{yr}
 \end{equation}
