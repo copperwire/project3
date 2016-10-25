@@ -1,10 +1,12 @@
 \begin{abstract}
-
-In this project, the second-order differential equation describing Newtons law of gravity has been
+In this project, the second-order differential equations describing Newtons law of gravity have been
 solved using forward Euler and velocity Verlet methods. The solutions were used to simulate the
 solar system including all planets. Through comparisons of stability and computation time,
 the velocity Verlet method was found to be the best choice for the simulations. The simulations are
 first presented as a two-body problem, then expanded to accomodate any number of objects as an
-N-body problem solver.
-
+N-body problem solver. Particle orbits are found to be sensitive to other massive objects. 
+At a distance 1AU, a particle must have an initial velocity of ~8.9 AU/yr (analytical solution) to 
+escape the suns gravitational pull. The numerical solution was found to be between 8.6 and 8.7 AU/yr.
+The initial velocity required to achieve a circular orbit at a distance 1AU from the sun was 
+calculated to be $2\pi$ AU/yr.
 \end{abstract}
