@@ -2,7 +2,15 @@
 \subsection{Escape velocity}
 The figures in \ref{results:escape-velocity} indicate that the planets escape velocity is between
 8.6 and 8.7 AU/yr. The exact solution is presented in \ref{eq:escape}, showing that the numerically
-obtained escape velocity is lower than the analytical solution.
+obtained escape velocity is lower than the analytical solution. This is a reasonable result as the 
+analytical solution is able to account for the infinity-case, while the numerical solution can only
+approach infinity by going 'far enough'. The numerical result of $v_{esc} = 8.7 \tfrac{AU}{yr}$ can 
+perhaps be concidered close enough, as for the entire simulation, the planets distance from the sun 
+does not stop increasing. If the amount of years were to be increased by an order of magnitude, 
+however, one would have to increase the initial velocity closer to the exact solution in order for 
+the planet to look like it is escaping. Thus, if there was enough time, one could continue to  
+increase the amount of simulation years and time steps until a sufficiently accurate result is
+obtained. Hardware limitations may surface if the numbers become very large.
 
 
 \subsection*{Class hierarchy}
