@@ -113,7 +113,7 @@ orbit can be thought of as an ellipse whose orientation in space slowly rotates.
 A general relativistic correction to the Newtonian gravitational force can be added. For the 
 Sun - Mercury system, the force becomes
 \begin{equation*}
-F_G = \frac{GM_{Sun}M_{Mercury}}{r^2}\bigg[1+\frac{3l^2}{r^2c^2}\bigg]
+F_G = \frac{GM_{\astroun}M_{Mercury}}{r^2}\bigg[1+\frac{3l^2}{r^2c^2}\bigg]
 \end{equation*}
 where $l = |\vec{r} \times \vec{v}|$ is the magnitude of Mercury's orbital angular momentum per unit
 mass, and $c$ is the speed of light in vacuum.
@@ -165,7 +165,7 @@ found using conservation of energy (assuming the planet - sun system can be trea
 Define kinetic energy as
 $$E_k = \frac{1}{2}m_{p}v_{p}^2$$
 and potential energy in the gravitational field as
-$$E_p = -\frac{Gm_{sun}m_{p}}{r}$$
+$$E_p = -\frac{GM_{\astrosun}m_{p}}{r}$$
 where $r$ is the distance between the center of mass of the planet and the sun, and $m_p$ is the
 mass of the planet. Define also the potential
 energy to be 0 when the planet is at an infinite distance away from the sun. The escape velocity can
@@ -179,13 +179,12 @@ where the left-hand side is the initial case and the right-hand side is the infi
 case. Inserting the expressions for kinetic and potential energy, and the conditions for the
 infinite-distance energies, gives:
 \begin{align*}
-\tfrac{1}{2}m_{p}v_{esc}^2 &- \frac{Gm_{sun}m_{p}}{r} = 0 \\
-\tfrac{1}{2}m_{p}v_{esc}^2 &= \frac{Gm_{sun}m_{p}}{r} \\
-v_{escape} &= \sqrt{\tfrac{2Gm_{sun}}{r}}
+\tfrac{1}{2}m_{p}v_{esc}^2 &- \frac{GM_{\astrosun}m_{p}}{r} = 0 \\
+\tfrac{1}{2}m_{p}v_{esc}^2 &= \frac{GM_{\astrosun}m_{p}}{r} \\
+v_{escape} &= \sqrt{\tfrac{2GM_{\astrosun}}{r}}
 \end{align*}
 Inserting $r = 1AU$ and $m_{sun} = 1$ gives 
 \begin{equation}\label{eq:escape}
 v_{esc} = \sqrt{2G} \approx 8.88\tfrac{AU}{yr}
 \end{equation}
-where the converted gravitational constant is $G = 39.42 \frac{(AU)^3}{M_{sun}(yr)^2}$
-
+where the converted gravitational constant is $G = 39.42 \frac{(AU)^3}{M_{\astrosun}(yr)^2}$
