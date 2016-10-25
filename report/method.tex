@@ -10,6 +10,29 @@ Unit tests are implemented to check that the numerical solutions are stable. Mor
                 commentstyle=\color{green}\ttfamily,
                 morecomment=[l][\color{magenta}]{\#}
                 }
+\subsection{Forces between bodies}
+To find the motion of the planets, it is needed to find the forces between the planets. The following code block is used to calculate the forces between the objects in both the Euler and the Verlet method. 
+\begin{lstlisting}[frame=single]
+  
+for(int i=0; i<numberOfBodies(); i++) {
+
+        CelestialBody &body1 = m_bodies[i];
+        for(int j=i+1; j<numberOfBodies(); j++) {
+            CelestialBody &body2 = m_bodies[j];
+            vec3 deltaRVector = body1.position 
+            - body2.position;
+            double dr = deltaRVector.length();
+
+            vec3 force_val = G* body1.mass*body2.mass
+            *deltaRVector/(dr*dr*dr);
+            body2.force += force_val;
+            body1.force -= force_val;
+
+            m_potentialEnergy += G* body1.mass
+            *body2.mass/(dr);
+        }
+\end{lstlisting}
+
 \subsection{Implementation Euler method}
 The following code block is the implementation of the differential equations that are to be solved in this problem, using the Euler method. 
 
@@ -38,3 +61,4 @@ The following code block is the implementation of the differential equations tha
         * (body.force/body.mass + prevAccel);
     }
 \end{lstlisting}
+As seen from the code block, the number of FLOPS in the Verlet method is $10N$, where $N$ is the number of iterations. 
