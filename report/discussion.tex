@@ -17,6 +17,14 @@ As seen in section \ref{sec:res}, where largely the velocity verlet algorithm ha
 When earth acted on by the sun alone in a circular path, this path is unchanging in time. When acted upon by a second substantial mass this ceases to be the case. As can be intuited the earth now seeks a balance hanging between two massive objects. Depending on the initial conditions of the bodies it will take some time to fall into a "steady state". The continious ebb and flow of gravitational forces creates precession in both the orbits of earth and Jupiter, as can be seen graphically by the "thickened" line of earths passage in figure \ref{fig:three}. This effect is further exacerbated by  the experiment in which Jupiters mass is increased tenfold in figure \ref{fig:ten_j} and a thousand fol in figure \ref{fig:thous_j}.
 In the event of having Jupiter at a thousand times its original mass the behaviour is that of a wayward star with high speed. Throwing that little system into complete disarray.   
 
+
+\subsubsection{The many-body problem}
+Extracting initial conditions from NASA and simulating orbits for the  nine particles yields results presented in figure \ref{fig:all}. On moral grounds Pluto has been excluded from the simulation. The inner planets, with their faster roundabout  times, show evidence of percession as expected. Most of the observed "disturbance" of  orbits are due to gravitational interference from other particles  in the system.  
+
+\subsection{The perehelion precession of mercury}
+As discussed in section \ref{sec:pres} Mercury will, under the sole influence of Newton, experience minimal orbital precession. That is; if the Mercury is acted upon solely by the sun. Unfortunately the script that was written to find the value of change in location of the perehelion failed to show any meaningful difference between the Newtonian and modern situations. It might be the calculation of orbits is wrong in and of itself and that error overshadows whatever data was in the precession. This seems somewhat unlikely as convincing shows of accuracy have been exhibited for the specialized case.  
+
+
 \subsection{Class hierarchy}
 
 The class structure used in this project is adapted from that written by Anders Hafreager. Adapting it to further generalization of the N-body problem is worth a bit of consideration. Primarily the class \lstinline{solarSystem} needs to be malleable  in the type of object it contains. That is to say; the \lstinline{celestialBody} class needs be expanded to be able to host arbitrary physical attributes as demanded by the acting potential. Secondly the class would need to take a pointer to a function (or perhaps a struct) or set of such potentials to facilitate any given set of interactions. More complex algorithms and considerations could be implemented if one were to consider "grouping" mechanics that would enable efficient iterations over truly large amounts of particles.

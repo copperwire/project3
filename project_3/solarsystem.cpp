@@ -22,6 +22,7 @@ void SolarSystem::calculateForcesAndEnergy()
     m_kineticEnergy = 0;
     m_potentialEnergy = 0;
     double G = 39.42 ; // AU^3 / (M_s * year ^2) = N m^2 / kg^2
+    double c = 63198 ; //AU/year
     vec3 prev_ang = m_angularMomentum;
     m_angularMomentum.zeros();
 
@@ -39,7 +40,8 @@ void SolarSystem::calculateForcesAndEnergy()
             vec3 deltaRVector = body1.position - body2.position;
             double dr = deltaRVector.length();
 
-            vec3 force_val = G* body1.mass*body2.mass*deltaRVector/(dr*dr*dr);
+            vec3 force_val = G* body1.mass*body2.mass*deltaRVector/(dr*dr*dr) ;  //* (1 +
+                                                                                 //3*(body2.position.cross(body2.velocity).lengthSquared()/(body2.position.lengthSquared() * c*c) ));
             body2.force += force_val;
             body1.force -= force_val;
 
@@ -53,13 +55,13 @@ void SolarSystem::calculateForcesAndEnergy()
    double d_P = fabs(prev_pot - m_potentialEnergy);
    double d_L = fabs((prev_ang - m_angularMomentum).length());
 
-   if( d_K > 0.0001*prev_kin){
+   if( d_K > 0.001*prev_kin){
        cout << "Warning: kinetic energy may be unstable " << endl;
    }
-   else if( d_P > 0.0001*prev_pot){
+   else if( d_P > 0.001*prev_pot){
        cout << "Warning: Potential energy may be unstable " << endl;
    }
-   else if( d_L > 0.0001*prev_ang.length()){
+   else if( d_L > 0.001*prev_ang.length()){
        cout << "Warning: Spin may be unstable " << endl;
    }
 }
