@@ -1,6 +1,11 @@
 \section{Conclusion}
 
-\subsection{Critique}
+By analytical calculation it is found that the velocity Earth must have to move in a circular orbit around the Sun is $2 \pi \frac{AU}{yr}$ if the gravitational force from the other planets in the Solar system is not considered. It is also found that the velocity Earth must have to escape the orbit of the Sun is $8.9 \frac{AU}{yr}$ This escape velocity is found to be between $8.6-8.7 \frac{AU}{yr}$ numerically. 
+
+From the results, it can be seen clearly that the velocity Verlet integration method is more suitable than the Euler method for this problem. However, as seen from table \ref{tab:time}, and as expected by the number of FLOPS, the Verlet method has longer computation time than the Euler method. For problems were less precision is needed, it may be better to use the Euler method. 
+
+When adding Jupiter into the Earth-Sun system, the orbit of the Earth is still quite circular, and the Sun is seemingly unaffected by the gravitational push from the two planets. However, if the mass of Jupiter is increased by a order of 10, the orbit of the planets are not so circular any more, and the Sun is clearly affected by the gravitational push from the planets, as it is no longer stationary. When the mass of Jupiter is increased by a order of 1000 of its original mass, the system is chaotic, and there are no circular orbit around a common mass centre. 
+
 This project has been a solid introduction to object orienting code and a good exercise in
 analyzing algorithms to find possible generalizations. To a greater extent than the previous
 projects, this has shown the process of performing numerical experiments.
