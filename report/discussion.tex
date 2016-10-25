@@ -3,3 +3,8 @@
 The figures in \ref{results:escape-velocity} indicate that the planets escape velocity is between
 8.6 and 8.7 AU/yr. The exact solution is presented in \ref{eq:escape}, showing that the numerically
 obtained escape velocity is lower than the analytical solution.
+
+
+\subsection*{Class hierarchy}
+
+The class structure used in this project is adapted from that written by Anders Hafreager. Adapting it to further generalization of the N-body problem is worth a bit of consideration. Primarily the class \lstinline{solarSystem} needs to be malleable  in the type of object it contains. That is to say; the \lstinline{celestialBody} class needs be expanded to be able to host arbitrary physical attributes as demanded by the acting potential. Secondly the class would need to take a pointer to a function (or perhaps a struct) or set of such potentials to facilitate any given set of interactions. More complex algorithms and considerations could be implemented if one were to consider "grouping" mechanics that would enable efficient iterations over truly large amounts of particles.
