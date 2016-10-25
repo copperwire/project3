@@ -8,6 +8,11 @@ obtained escape velocity is lower than the analytical solution.
 
 When comparing numerical methods it's ofted advantageous to attack the problem from two angles: efficiency and stability. From the timer example in table \ref{tab:time} it's evident that the forward Euler method is significantly  faster than Verlet, which is a well known strength of the method. However, when comparing the convergence rate of the two it becomes evident that whatever Euler gains in speeds it looses in terms of quality. The divergence of convergence rates can be traced back to the analytical expressions wherein Euler is shown to have an order of one less than the velocity verlet method.
 
+\subsubsection{Quick note on stability}
+
+As seen in section \ref{sec:res}, where largely the velocity verlet algorithm has been applied, the method seems disinclined to blowing up even at large step sizes. Quantifying how "stiff" the equation to be solves isn't trivial so a rigid measure of "resistance" from the system isn't readily available. A contributing factor to the  methods stability could be the "coupling" of velocity and position. Regarding the solution for the "two sun system" where jupiters mass is adjust to a thousand times its normal value displayed in figure \ref{fig:thous_j}. While the system looks to be in wild dissaray no terms blow up and the solution seems admirably stable. 
+
+
 \subsection{The three body problem}
 When earth acted on by the sun alone in a circular path, this path is unchanging in time. When acted upon by a second substantial mass this ceases to be the case. As can be intuited the earth now seeks a balance hanging between two massive objects. Depending on the initial conditions of the bodies it will take some time to fall into a "steady state". The continious ebb and flow of gravitational forces creates precession in both the orbits of earth and Jupiter, as can be seen graphically by the "thickened" line of earths passage in figure \ref{fig:three}. This effect is further exacerbated by  the experiment in which Jupiters mass is increased tenfold in figure \ref{fig:ten_j} and a thousand fol in figure \ref{fig:thous_j}.
 In the event of having Jupiter at a thousand times its original mass the behaviour is that of a wayward star with high speed. Throwing that little system into complete disarray.   

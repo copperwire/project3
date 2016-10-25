@@ -11,7 +11,7 @@ Unit tests are implemented to check that the numerical solutions are stable. Mor
                 morecomment=[l][\color{magenta}]{\#}
                 }
 \subsection{Forces between bodies}
-To find the motion of the planets, it is needed to find the forces between the planets. The following code block is used to calculate the forces between the objects in both the Euler and the Verlet method. 
+To find the motion of the planets, it is needed to find the forces between the planets. The following code block is used to calculate the forces between the objects in both the Euler and the Verlet method. Iterating over \lstinline{j = i+1} inside the loop over i ensures that all interactions are covered and only computet once. 
 \begin{lstlisting}[frame=single]
   
 for(int i=0; i<numberOfBodies(); i++) {
