@@ -1,4 +1,4 @@
-\section{Results}
+\section{Results}\label{sec:res}
 \subsection{Two-body system}
 \begin{figure}[h]
 \includegraphics[scale=0.7]{figures/earth_sun_euler}
@@ -28,14 +28,14 @@ The Euler method does not pass the tests for conservation of kinetic energy, pot
 \subsubsection{Escape velocity}\label{results:escape-velocity}
 Using the model for the two-body system, a trial and error process of finding the escape velocity
 for a planet with initial position 1AU away from the sun was performed. The calculations were
-performed using the velocity Verlet method.
-\begin{figure}[h]
+performed using the velocity Verlet method. \ref{fig:escape-no} shows the non-escape case, while
+\ref{fig:escape-yes} shows the escaping case.
+\begin{figure}[h]\label{fig:escape-no}
 \includegraphics[width=\textwidth]{figures/escape_86}
-\label{tab:comp-time}
 \caption{The plot shows the position of a planet relative to the sun as a function of time when 
 the planet has $v_{init} = 8.6\tfrac{AU}{yr}$}
 \end{figure}
-\begin{figure}[h]
+\begin{figure}[h]\label{fig:escape-yes}
 \includegraphics[width=\textwidth]{figures/escape_87}
 \caption{The plot shows the position of a planet relative to the sun as a function of time when 
 the planet has $v_{init} = 8.7\tfrac{AU}{yr}$}
@@ -52,6 +52,7 @@ Forward Euler   & 0.416121 \\
 \hline
 Velocity Verlet & 1.17558 \\
 \hline
+\label{tab:comp-time}
 \end{tabular}
 \end{table}
 
