@@ -4,6 +4,9 @@ The figures in \ref{results:escape-velocity} indicate that the planets escape ve
 8.6 and 8.7 AU/yr. The exact solution is presented in \ref{eq:escape}, showing that the numerically
 obtained escape velocity is lower than the analytical solution.
 
+\subsection{Verlet vs Euler}
+
+When comparing numerical methods it's ofted advantageous to attack the problem from two angles: efficiency and stability. From the timer example in table \ref{tab:time} it's evident that the forward Euler method is significantly  faster than Verlet, which is a well known strength of the method. However, when comparing the convergence rate of the two it becomes evident that whatever Euler gains in speeds it looses in terms of quality. The divergence of convergence rates can be traced back to the analytical expressions wherein Euler is shown to have an order of one less than the velocity verlet method.
 
 \subsection{The three body problem}
 When earth acted on by the sun alone in a circular path, this path is unchanging in time. When acted upon by a second substantial mass this ceases to be the case. As can be intuited the earth now seeks a balance hanging between two massive objects. Depending on the initial conditions of the bodies it will take some time to fall into a "steady state". The continious ebb and flow of gravitational forces creates precession in both the orbits of earth and Jupiter, as can be seen graphically by the "thickened" line of earths passage in figure \ref{fig:three}. This effect is further exacerbated by  the experiment in which Jupiters mass is increased tenfold in figure \ref{fig:ten_j} and a thousand fol in figure \ref{fig:thous_j}.
