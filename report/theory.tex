@@ -103,6 +103,25 @@ object 1 is given by a set of second-order differential equations on the form:
 where $F_{G,x}$ and $F_{G,y}$ are the x and y components of the gravitational force.
 These equations are the basis for the N-body problem that this project aims to solve.
 
+\subsubsection{General relativity and the perihelion precession of Mercury}
+
+Closed elliptical orbits are a special feature of the Newtonian $1/r^2$ force. In
+general, any correction to the pure $1/r^2$ behaviour will lead to an orbit which is
+not closed, i.e. after one complete orbit around the Sun, the planet will not be
+at exactly the same position as it started. If the correction is small, then each
+orbit around the Sun will be almost the same as the classical ellipse, and the
+orbit can be thought of as an ellipse whose orientation in space slowly rotates.
+A general relativistic correction to the Newtonian gravitational force can be added. For the 
+Sun - Mercury system, the force becomes
+\begin{equation*}
+F_G = \frac{GM_{Sun}M_{Mercury}}{r^2}\vbig[1+\frac{3l^2}{r^2c^2}\vbig]
+\end{equation*}
+where $l = |\vec{r} \cross \vec{v}|$ is the magnitude of Mercury's orbital angular momentum per unit
+mass, and $c$ is the speed of light in vacuum.
+This allows for testing how general relativitys prediction for the perihelion precession of Mercury
+compares to the observed value. The observed value when all classical effects are subtracted is 43´´
+(43 arc seconds) per century.
+
 \subsection{Two-body problem}
 
 Initially in this project, the two-body problem is solved, with Earth orbiting the Sun. Actually the problem of Earth orbiting the Sun can be approximated as a one-body problem, as the mass of the Sun is a lot bigger than the mass of Earth, and so we can view it as Earth orbiting a stationary Sun. 
