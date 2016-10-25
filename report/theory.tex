@@ -1,4 +1,20 @@
 \section{Theory}
+\subsection{Forward Euler method}
+The forward Euler method is a well known first-order numerical procedure for solving ODEs with a 
+given initial value. It can be derived in a number of ways, but the most common one is the 
+taylor expansion of a function $y$ around a point $t_0$. For the ODE 
+$$y^{(1)}(t) = f(t,y(t))$$ this gives:
+\begin{equation*}
+y(t_0 + h) =  y(t_0) + hy^{(1)}(t_0) + \tfrac{h^2}{2}y^{(2)}(t_0) + O(h^3)
+\end{equation*}
+Substituting $y^{(1)}(t) = f(t,y(t))$ and ignoring the higher order terms, and introducing a step size
+$h$ such that $t_i = t_0 + ih$ where $i \in [0,n]$ and $h = \frac{t_n-t_0}{n}$, gives:
+\begin{equation*} 
+y_{i+1} = y_i + hf(t_i, y_i)
+\end{equation*}
+A deeper explanation and examples for improving the method is available at the course github
+\footnote{http://compphysics.github.io/ComputationalPhysics/doc/pub/ode/pdf/ode-print.pdf}.
+
 \subsection{Velocity-Verlet method}
 \subsubsection{General Verlet}
 This is a popular algorithm for solving Newton's equations of motion, and is also used in  
@@ -68,7 +84,8 @@ It is important when implementing this method that the term $v_{i+1}^{(1)}$ depe
 $x_{i+1}$, which means the position must be calculated at $t_{i+1}$ before the next velocity can
 be computed. Additionally, the derivative of the velocity at the time $t_i$ used when calculating
 the updated position can be reused in the velocity update.
-
+More information can be found at the course github 
+\footnote{http://compphysics.github.io/ComputationalPhysics/doc/pub/ode/pdf/ode-print.pdf}.
 
 \subsection{Two-body problem}
 
