@@ -87,6 +87,22 @@ the updated position can be reused in the velocity update.
 More information can be found at the course github 
 \footnote{http://compphysics.github.io/ComputationalPhysics/doc/pub/ode/pdf/ode-print.pdf}.
 
+\subsection{Gravity}
+Newton's law of gravitation is given by a force $F_G$
+\begin{equation}\label{eq:grav}
+F_G = \frac{GM_1M_2}{r^2}
+\end{equation}
+Where $M_1$ and $M_2$ are the masses of the objects, $G$ is the gravitational constant, and $r$ 
+is the distance between the objects.
+Assuming the motion is co-planar in the xy-plane, the position of object 2 relative to  
+object 1 is given by a set of second-order differential equations on the form:
+\begin{align*}
+\frac{d^2x}{dt^2} = \frac{F_{G,x}}{M_2} \\
+\frac{d^2y}{dt^2} = \frac{F_{G,y}}{M_2} \\
+\end{align*}
+where $F_{G,x}$ and $F_{G,y}$ are the x and y components of the gravitational force.
+These equations are the basis for the N-body problem that this project aims to solve.
+
 \subsection{Two-body problem}
 
 Initially in this project, the two-body problem is solved, with Earth orbiting the Sun. Actually the problem of Earth orbiting the Sun can be approximated as a one-body problem, as the mass of the Sun is a lot bigger than the mass of Earth, and so we can view it as Earth orbiting a stationary Sun. 
