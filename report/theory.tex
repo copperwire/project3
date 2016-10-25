@@ -1,20 +1,4 @@
 \section{Theory}
-\subsection{Forward Euler method}
-The forward Euler method is a well known first-order numerical procedure for solving ODEs with a 
-given initial value. It can be derived in a number of ways, but the most common one is the 
-taylor expansion of a function $y$ around a point $t_0$. For the ODE 
-$$y^{(1)}(t) = f(t,y(t))$$ this gives:
-\begin{equation*}
-y(t_0 + h) =  y(t_0) + hy^{(1)}(t_0) + \tfrac{h^2}{2}y^{(2)}(t_0) + O(h^3)
-\end{equation*}
-Substituting $y^{(1)}(t) = f(t,y(t))$ and ignoring the higher order terms, and introducing a step size
-$h$ such that $t_i = t_0 + ih$ where $i \in [0,n]$ and $h = \frac{t_n-t_0}{n}$, gives:
-\begin{equation*} 
-y_{i+1} = y_i + hf(t_i, y_i)
-\end{equation*}
-For a deeper explanation of the method and possible improvements, see <reference to 
-lecture notes here>.
-
 \subsection{Velocity-Verlet method}
 \subsubsection{General Verlet}
 This is a popular algorithm for solving Newton's equations of motion, and is also used in  
@@ -95,7 +79,7 @@ A planet orbiting a star, generally has an elliptical orbit, here we want to loo
 
 
 \subsection{n-body problem}
-The one-body problem can be solved analytically, and so can the two-body problem by splitting it up to two one-body problems. The three-body problem, however, can not be solved analytically. More generally, the n-body problem with $n>2$ cannot be solved analytically, and we depend on numerical tools to solve them. 
+The one-body problem can be solved analytically, and so can the two-body problem by splitting it up to two one-body problems. The three-body problem, however, can not be solved analytically. More generally, the n-body problem with $n>2$ cannot be solved analytically, and we depend on numerical tools to solve them. The n-body problem is solved by using numerical integration methods, i.e the forward-Euler or the Verlet method. 
 
 \subsection{Conservation laws}\label{sec:cons}
 
