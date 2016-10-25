@@ -2,3 +2,39 @@
 
 \subsection{Unit tests}
 Unit tests are implemented to check that the numerical solutions are stable. More precisely, it is tested that the kinetic energy, potential energy and angular momentum all are conserved in the motion of the particles in the system. See section \ref{sec:cons} for justification that these should be conserved. 
+
+\lstset{language=C++,
+                basicstyle=\ttfamily,
+                keywordstyle=\color{blue}\ttfamily,
+                stringstyle=\color{red}\ttfamily,
+                commentstyle=\color{green}\ttfamily,
+                morecomment=[l][\color{magenta}]{\#}
+                }
+\subsection{Implementation Euler method}
+The following code block is the implementation of the differential equations that are to be solved in this problem, using the Euler method. 
+
+\begin{lstlisting}[frame=single]
+    for(CelestialBody &body : system.bodies()){
+        body.position += body.velocity * time_step;
+        body.velocity += (body.force/body.mass)
+        *time_step;
+	} 
+\end{lstlisting}
+
+As seen from the code block, the number of FLOPS in the Euler method $5N$, where $N$ is the number of iterations.  
+
+\subsection{Implementation of Verlet method}
+The following code block is the implementation of the differential equations that are to be solved in this problem, using the Verlet method. 
+
+
+\begin{lstlisting}[frame=single]
+
+  for(CelestialBody &body : system.bodies()){
+        vec3 prevAccel = body.force/body.mass;
+        body.position += time_step*body.velocity
+         + stepstep/2 * prevAccel;
+        system.calculateForcesAndEnergy();
+        body.velocity += time_step/2. 
+        * (body.force/body.mass + prevAccel);
+    }
+\end{lstlisting}
