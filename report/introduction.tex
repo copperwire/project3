@@ -1,12 +1,15 @@
 \section{Introduction}
-In this project the goal is to develop a code for simulating the motion of objects in the Solar System, using the velocity
-Verlet algorithm. The Verlet algorithm will be compared to the well-known forward-Euler algorithm for the
-initial parts of the project. It is found that the Verlet algorithm iis more stable, so this is the integration method used in the rest of the project.  
+In this project the goal is to develop a code for simulating the motion of objects in the 
+Solar System, using the velocity Verlet algorithm. 
+The Verlet algorithm will be compared to the well-known forward-Euler 
+algorithm for the initial parts of the project.  
 To generalize and simplify the structure of the program, 
 the code will be object oriented, so repeatable parts and operations are written as classes.
 The project will progress by first developing a code for the two-body Earth-Sun system, and then
 expanding to a three-body system, before finally completing the solar system with all planets.
-precession of Mercury
+The implementation of the algorithms will be tested by making checks for the conservation of 
+energies and angular momentum. Initial conditions for the objects in the solar system are
+found on NASA's web-pages \footnote{http://ssd.jpl.nasa.gov/horizons.cgi}.
 \newline
 As a base for classes and the general structure of the program, the example code available
 \href{https://github.com/andeplane/solar-system}{here (Github)} was used.
